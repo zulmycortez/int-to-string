@@ -1,0 +1,1 @@
+This application contains a local mongoDB that stores numbers that have been submitted, a server that accepts integers and converts given integers to their English word, and a web app where users can type in numbers and get back their respective name conversions
