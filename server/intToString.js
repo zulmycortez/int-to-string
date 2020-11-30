@@ -20,13 +20,13 @@ const intToString = n => {
   const tenRemainder = remainder(n, 100)
   const hundredRemainder = remainder(n, 1000)
   const hasNoTens = tenRemainder === 0
-  const hasNoHundred = hundredRemainder === 0
+  const hasNoHundreds = hundredRemainder === 0
 
   if (n < 0) return errorMessage
   if (n < 20) return ones[n]
   if (n < 100) return tens[index(n, 1)] + oneString
   if (n < 1000) return ones[index(n, 10)] +" hundred " + (hasNoTens ? "": " " + recurse(tenRemainder))
-  if (n < 10000) return recurse(index(n, 100)) + " thousand " + (hasNoHundred ? "" :  " " + recurse(hundredRemainder))
+  if (n < 10000) return recurse(index(n, 100)) + " thousand " + (hasNoHundreds ? "" :  " " + recurse(hundredRemainder))
   return errorMessage
 }
 
