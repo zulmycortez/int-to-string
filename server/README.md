@@ -3,7 +3,8 @@ The purpose of this server is create a server that interacts with a database to:
 2. Submit a number inputted by the user and transform this number to it's english word equivalent.
 
 Prerequisites to run this application:
-1. You will need to have mongoDB set up locally and create a db with the name of "number". (https://docs.mongodb.com/manual/tutorial/getting-started/)
+1. You will need to have mongoDB set up locally and create a db with the name of "number". (https://docs.mongodb.com/manual/installation/)
+2. Make sure you download the required dependencies by running 'npm i' on your terminal.
 
 High level overview of each file: 
 ### controller.js
