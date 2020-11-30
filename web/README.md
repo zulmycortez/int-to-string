@@ -1,7 +1,7 @@
 The purpose of this web application is to create an interface so a user can submit a number and get back the english word equivalent of that number.
 
 Prerequisites to run this application:
-1. You will need to install the required dependencies by running 'npm i' on your command prompt when in this folder.
+1. Make sure you download the required dependencies by running 'npm i' on your terminal.
 
 High level overview of each file:
 
