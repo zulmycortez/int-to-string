@@ -11,7 +11,7 @@ postNumber = (req, res) => {
       return res.status(201).json({
         success: true,
         message: 'Number posted',
-        string: convert.intToString(obj.number)
+        output: convert.intToString(obj.number)
       })
     })
     .catch(error => {

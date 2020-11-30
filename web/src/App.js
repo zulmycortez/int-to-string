@@ -19,7 +19,7 @@ const App = () => {
   const onSubmit = () => {
     axios.post(`http://localhost:3001/api/numbers/${number}`)
       .then(res => {
-        setString(capitalizeFirstLetter(res.data.string));
+        setString(capitalizeFirstLetter(res.data.output));
         setError(false);
       })
       .catch(() => setError(true))
