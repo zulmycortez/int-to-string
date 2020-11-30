@@ -10,10 +10,6 @@ const tens = [
   "eighty", "ninety"
 ]
 
-const capitalizeFirstLetter =(string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 const intToString = n => {
   const errorMessage = "Please enter any number between 0 - 9999"
   const one = n % 10

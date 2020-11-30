@@ -5,6 +5,10 @@ import Button from './components/Button'
 import ErrorView from './components/ErrorView'
 import './App.css'
 
+const capitalizeFirstLetter = s => {
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 const App = () => {
   const [number, setNumber] = useState('')
   const [string, setString] = useState('')
@@ -15,7 +19,7 @@ const App = () => {
   const onSubmit = () => {
     axios.post(`http://localhost:3001/api/numbers/${number}`)
       .then(res => {
-        setString(res.data.string);
+        setString(capitalizeFirstLetter(res.data.string));
         setError(false);
       })
       .catch(() => setError(true))
