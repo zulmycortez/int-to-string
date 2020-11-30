@@ -10,21 +10,28 @@ const tens = [
   "eighty", "ninety"
 ]
 
+const capitalizeFirstLetter =(string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const intToString = n => {
+  const errorMessage = "Please enter any number between 0 - 9999"
   const one = n % 10
   const index = (m, o) => Math.floor(m / (10 * o))
   const remainder = (m, o) => m % o
   const oneString = one ? " " + ones[one] : ""
   const recurse = m => intToString(m)
   const tenRemainder = remainder(n, 100)
-  const hundredRemainer = remainder(n, 1000)
-  const hasTens = tenRemainder === 0
-  const hasHundred = hundredRemainer === 0
+  const hundredRemainder = remainder(n, 1000)
+  const hasNoTens = tenRemainder === 0
+  const hasNoHundred = hundredRemainder === 0
 
-  if (n < 20) return ones[n] 
+  if (n < 0) return errorMessage
+  if (n < 20) return ones[n]
   if (n < 100) return tens[index(n, 1)] + oneString
-  if (n < 1000) return ones[index(n, 10)] +" hundred " + (hasTens ? "": " " + recurse(tenRemainder))
-  return recurse(index(n, 100)) + " thousand " + (hasHundred ? "" :  " " + recurse(hundredRemainer))
+  if (n < 1000) return ones[index(n, 10)] +" hundred " + (hasNoTens ? "": " " + recurse(tenRemainder))
+  if (n < 10000) return recurse(index(n, 100)) + " thousand " + (hasNoHundred ? "" :  " " + recurse(hundredRemainder))
+  return errorMessage
 }
 
 exports.intToString = intToString
