@@ -1,28 +1,30 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import Input from './components/Input'
-import Button from './components/Button'
-import ErrorView from './components/ErrorView'
+import { Input, Button, ErrorView } from './components'
+import { capitalizeFirstLetter, intToString } from './utils'
 import './App.css'
-
-const capitalizeFirstLetter = s => {
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
 
 const App = () => {
   const [number, setNumber] = useState('')
   const [string, setString] = useState('')
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const onChange = e => { setNumber(e.target.value)}
 
   const onSubmit = () => {
+    setLoading(true)
     axios.post(`http://localhost:3001/api/numbers/${number}`)
       .then(res => {
+        setLoading(false);
         setString(capitalizeFirstLetter(res.data.output));
         setError(false);
       })
-      .catch(() => setError(true))
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+        setString(capitalizeFirstLetter(intToString(number)));
+      })
   }
 
   return (
@@ -35,7 +37,7 @@ const App = () => {
       <Button onClick={onSubmit}>
         Convert
       </Button>
-      <p>{string}</p>
+      <p>{loading ? 'Loading...' : string}</p>
       {error && <ErrorView />}
     </div>
   )
