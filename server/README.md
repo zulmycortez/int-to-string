@@ -4,7 +4,17 @@ The purpose of this server is create a server that interacts with a database to:
 
 Prerequisites to run this application:
 1. You will need to have mongoDB set up locally and create a db with the name of "number". (https://docs.mongodb.com/manual/installation/)
-2. Make sure you download the required dependencies by running 'npm i' on your terminal.
+  WINDOWS SET UP:
+  - Download MongoDB Community Edition (https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/). Try to find "MongoDB Download Center".
+  - Go through the set up provided after download. For configuration set up, please follow 3b for service configuration but most of this in already set up for you.
+  - Finally, you will know that MongoDB set up was complete if you are able to navigate to `C:\Program Files\MongoDB\Server\4.4\bin\mongo.exe` successfully.
+  - Once you are inside of this execution "mongo.exe", type `use number` inside your terminal to create the number database. You should get back a message that says "switched to db number".
+
+  MAC SET UP:
+  - Instructions are similar as above however you interact with MongoDB through a 3rd party called HomeBrew which has it's own commands. Please visit https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/ for proper instructions.
+
+2. Make sure you download the required dependencies by running `npm i` on your terminal.
+3. To run the server, type `node server` on your terminal.
 
 High level overview of each file: 
 ### controller.js

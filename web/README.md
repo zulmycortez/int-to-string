@@ -1,8 +1,9 @@
 The purpose of this web application is to create an interface so a user can submit a number and get back the english word equivalent of that number.
 
 Prerequisites to run this application:
-1. Make sure you download the required dependencies by running 'npm i' on your terminal.
-2. In order for this application to work, you need to have the 'server' folder running on localhost:3001 as well as have already set up your local mongo database. Please see /server/README.md for mongodb installation instructions.
+1. Make sure you download the required dependencies by running `npm i` on your terminal.
+2. In order for this application to work, you need to have the 'server' folder running on localhost:3001 as well and have already set up your local mongo database. Please see /server/README.md for mongodb installation instructions.
+3. Please type in `npm start` in your terminal to start up this react app.
 
 High level overview of each file:
 
