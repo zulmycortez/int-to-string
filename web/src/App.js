@@ -4,6 +4,9 @@ import { Input, Button, ErrorView } from './components'
 import { capitalizeFirstLetter, intToString } from './utils'
 import './App.css'
 
+// turn this variable on if you do not have db/api running locally
+const mock = false
+
 const App = () => {
   const [number, setNumber] = useState('')
   const [string, setString] = useState('')
@@ -14,17 +17,23 @@ const App = () => {
 
   const onSubmit = () => {
     setLoading(true)
-    axios.post(`http://localhost:3001/api/numbers/${number}`)
-      .then(res => {
-        setLoading(false);
-        setString(capitalizeFirstLetter(res.data.output));
-        setError(false);
-      })
-      .catch(() => {
-        setError(true);
+    if (mock) {
+      new Promise(() => {
         setLoading(false);
         setString(capitalizeFirstLetter(intToString(number)));
       })
+    } else {
+      axios.post(`http://localhost:3001/api/numbers/${number}`)
+        .then(res => {
+          setLoading(false);
+          setString(capitalizeFirstLetter(res.data.output));
+          setError(false);
+        })
+        .catch(() => {
+          setError(true);
+          setLoading(false);
+        })
+    }
   }
 
   return (
