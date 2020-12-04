@@ -5,6 +5,7 @@ import { capitalizeFirstLetter, intToString } from './utils'
 import './App.css'
 
 // turn this variable on if you do not have db/api running locally
+// to get the same functionality as if the db/api was running.
 const mock = false
 
 const App = () => {
